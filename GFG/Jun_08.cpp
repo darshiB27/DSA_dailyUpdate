@@ -1,3 +1,5 @@
+//Binary Search
+
 // class Solution {
 // public:
 //     int firstSearch(vector<int> &arr, int k) {

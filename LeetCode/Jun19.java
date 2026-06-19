@@ -1,5 +1,6 @@
 //58. Length of Last Word
 
+import java.util.Scanner;
 class Solution {
     public int lengthOfLastWord(String s) {
         s=s.trim(); int n=0;
@@ -12,4 +13,16 @@ class Solution {
         return n ;
     }
 }
-
+public class Jun19
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter String");
+        String str= sc.nextLine();
+        Solution obj= new Solution();
+        int n= obj.lengthOfLastWord(str);
+        System.out.println("Length of last word = "+n);
+        sc.close();
+    }
+}

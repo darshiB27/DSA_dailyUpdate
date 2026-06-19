@@ -1,7 +1,6 @@
 //2161.  Partition Array According to Given Pivot
 
 #include<vector>
-#include<unordered_map>
 
 using namespace std;
 

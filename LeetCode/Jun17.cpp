@@ -1,7 +1,6 @@
 //169. Majority Element
 
 #include<vector>
-#include<unordered_map>
 
 using namespace std;
 

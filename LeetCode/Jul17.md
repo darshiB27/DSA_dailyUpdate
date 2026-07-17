@@ -5,13 +5,12 @@ This guide breaks down low-level integer mechanics and overflow handling rules c
 
 ## 📦 1. The Bit Containers (Memory Types)
 ```text
-  32-Bit (Small Cup)             64-Bit (Giant Bucket)
+32-Bit (Small Cup)             64-Bit (Giant Bucket)
  ┌─────────────────┐           ┌─────────────────────────────┐
- │             [-2³¹, 2³¹ - 1]               │           │                          [-2⁶³, 2⁶³ - 1]                                   │
+ │ [-2³¹, 2³¹ - 1] │           │       [-2⁶³, 2⁶³ - 1]       │
  └─────────────────┘           └─────────────────────────────┘
  (Strictly Banned in           (Often forbidden to force your
-  integer questions)            use of look-ahead logic)
-```
+  integer questions)            use of look-ahead logic)```
 ---
 
 ### **Signed vs. Unsigned:** 
@@ -69,14 +68,9 @@ $$\text{INT\_MAX} + 1 \longrightarrow \text{INT\_MIN}$$
 * **The Core Rule:** Inspect your value tracker **before** you multiply it by 10 or add an incoming digit.
 
 
-* **The Mathematical Checklist:** 
-
-
-1. **Too Large?** If $\text{current\_result} > \frac{\text{INT\_MAX}}{10} \longrightarrow$ **Stop and Return 0**.
-
-
-2. **On the Boundary Edge?** If $\text{current\_result} == \frac{\text{INT\_MAX}}{10}$, inspect the incoming units digit. If it is $> 7$, executing the math will cause a spill $\longrightarrow$ **Stop and Return 0**.
-(Note: Apply the exact mirror logic using $\frac{\text{INT\_MIN}}{10}$ and checking for digits $< -8$ for negative numbers).
+* **The Mathematical Checklist:**
+  1. **Too Large?** If $\text{current\_result} > \frac{\text{INT\_MAX}}{10} \longrightarrow$ **Stop and Return 0**.
+  2. **On the Boundary Edge?** If $\text{current\_result} == \frac{\text{INT\_MAX}}{10}$, inspect the incoming units digit. If it is $> 7$, executing the math will cause a spill $\longrightarrow$ **Stop and Return 0**.(Note: Apply the exact mirror logic using $\frac{\text{INT\_MIN}}{10}$ and checking for digits $< -8$ for negative numbers).
 
 ---
 
